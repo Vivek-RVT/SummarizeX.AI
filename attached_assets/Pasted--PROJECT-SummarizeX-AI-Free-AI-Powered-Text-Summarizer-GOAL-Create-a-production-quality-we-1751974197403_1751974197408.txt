@@ -1,0 +1,64 @@
+📌 PROJECT: SummarizeX.AI — Free AI-Powered Text Summarizer
+
+🎯 GOAL:
+Create a production-quality website with an Apple-style UI that lets users:
+- Upload a PDF or paste a long article/text
+- Extract text (from PDF)
+- Summarize the text using HuggingFace API (e.g., bart-large-cnn)
+- Display the summary instantly in the frontend
+- Add "Copy", "Download", and "Dark Mode" options
+
+📦 TECH STACK:
+- Frontend: HTML5, Tailwind CSS (Apple-style: rounded corners, blur effects, soft shadows, smooth animations), Vanilla JS
+- Backend: Node.js + Express
+- PDF Text Extraction: pdf-parse
+- AI Summarization: HuggingFace Inference API (`facebook/bart-large-cnn`)
+- Deployment-ready on Replit or Render
+
+🌐 SEO + PERFORMANCE:
+- Add full SEO meta tags: title, description, canonical, Open Graph, Twitter card
+- Add favicon, apple-touch-icon
+- Use preload/prefetch for fonts
+- Responsive across mobile, tablet, desktop
+- Use async/defer for JS and compress assets
+- Add JSON-LD schema for "WebApplication"
+
+🧾 FEATURES:
+- Upload PDF → parse & extract text
+- Paste box → accepts large user input
+- Button: "Summarize"
+- Shows Summary with smooth animation
+- Copy to Clipboard + Download .txt file
+- Optional: Language selector for future (EN/FR/HI)
+- Loading animation while summary is processing
+- Error handling for empty input, large files, and API failure
+
+🎨 DESIGN INSPIRATION:
+- Like Apple.com design: clean, white, elegant
+- Font: Inter or San Francisco style
+- Use Tailwind utility classes for spacing & layout
+- Add subtle hover transitions and box shadows
+- Add blurred glass effect on summary card
+
+🔐 API:
+- Use HuggingFace inference API
+- Model: `facebook/bart-large-cnn`
+- Make POST request to HuggingFace endpoint with the text
+- Show loading indicator while summary is fetched
+
+🧪 TESTING:
+- Handle 3 test cases:
+  - Paste raw text and get summary
+  - Upload PDF and get summary
+  - Error message on blank input or API fail
+
+🧰 OUTPUT:
+- Full folder structure:
+  - `index.html`
+  - `/public` (css, js, img)
+  - `/routes` and `/controllers` (backend)
+  - `server.js`
+  - `README.md`
+  - `.env` for HuggingFace API key
+
+Generate full working code with styling and test data included.
