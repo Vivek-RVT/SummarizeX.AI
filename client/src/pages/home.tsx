@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { apiRequest } from "@/lib/queryClient";
+import { PWAInstall } from "@/components/pwa-install";
 import { 
   FileText, 
   Edit3, 
@@ -18,7 +20,8 @@ import {
   RotateCcw,
   Sun,
   Moon,
-  CheckCircle
+  CheckCircle,
+  ExternalLink
 } from "lucide-react";
 
 interface SummarizeResponse {
@@ -47,13 +50,15 @@ function Header() {
   const { theme, toggleTheme } = useTheme();
   
   return (
-    <header className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+    <header className="sticky top-0 z-50 glass-effect border-b border-gray-200/40 dark:border-gray-700/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">S</span>
-            </div>
+            <img 
+              src="/logo.svg" 
+              alt="SummarizeX.AI Logo" 
+              className="w-10 h-10"
+            />
             <h1 className="text-xl font-semibold text-gray-900 dark:text-white">SummarizeX.AI</h1>
           </div>
           
@@ -62,7 +67,7 @@ function Header() {
               variant="ghost"
               size="sm"
               onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+              className="p-2 rounded-full hover:bg-gray-100/50 dark:hover:bg-gray-800/50 transition-all duration-200"
             >
               {theme === 'dark' ? (
                 <Sun className="w-5 h-5 text-gray-600 dark:text-gray-300" />
@@ -72,7 +77,7 @@ function Header() {
             </Button>
             
             <div className="hidden sm:flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
-              <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
               <span>Free Forever</span>
             </div>
           </div>
@@ -256,7 +261,7 @@ function MainInterface() {
         {/* Input Methods */}
         <div className="grid md:grid-cols-2 gap-6 mb-8">
           {/* PDF Upload */}
-          <Card>
+          <Card className="card-glass border-0 shadow-xl">
             <CardContent className="p-6">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
                 <FileText className="w-5 h-5 mr-2 text-blue-500" />
@@ -308,7 +313,7 @@ function MainInterface() {
           </Card>
           
           {/* Text Input */}
-          <Card>
+          <Card className="card-glass border-0 shadow-xl">
             <CardContent className="p-6">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
                 <Edit3 className="w-5 h-5 mr-2 text-blue-500" />
@@ -363,7 +368,7 @@ function MainInterface() {
         
         {/* Results Section */}
         {summary && (
-          <Card className="backdrop-blur-sm bg-white/90 dark:bg-gray-800/90 border border-gray-200/50 dark:border-gray-700/50 animate-in slide-in-from-bottom-4 duration-500">
+          <Card className="glass-effect border-0 shadow-2xl animate-slide-up">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center">
@@ -512,10 +517,10 @@ function Footer() {
           <div>
             <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-4">Support</h3>
             <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
-              <li><a href="#" className="hover:text-blue-500 transition-colors">Help Center</a></li>
-              <li><a href="#" className="hover:text-blue-500 transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-blue-500 transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="hover:text-blue-500 transition-colors">Contact</a></li>
+              <li><Link href="/about" className="hover:text-blue-500 transition-colors">About</Link></li>
+              <li><Link href="/privacy" className="hover:text-blue-500 transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="hover:text-blue-500 transition-colors">Terms of Service</Link></li>
+              <li><Link href="/contact" className="hover:text-blue-500 transition-colors">Contact</Link></li>
             </ul>
           </div>
         </div>
@@ -559,12 +564,13 @@ function ThemeProvider({ children }: { children: React.ReactNode }) {
 export default function Home() {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50 dark:from-gray-900 dark:via-blue-950/20 dark:to-indigo-950/30 transition-colors duration-300">
         <Header />
         <HeroSection />
         <MainInterface />
         <FeaturesSection />
         <Footer />
+        <PWAInstall />
       </div>
     </ThemeProvider>
   );
