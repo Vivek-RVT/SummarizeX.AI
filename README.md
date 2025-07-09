@@ -85,11 +85,11 @@ Upload a PDF file and extract text content.
 - Content-Type: `multipart/form-data`
 - Body: PDF file in `pdf` field
 
+### This project is proudly created and maintained by Vivek Rawat, a passionate full-stack developer dedicated to building practical and impactful AI-powered web applications. SummarizeX.AI represents my commitment to combining cutting-edge technology with user-friendly design to solve real-world problems efficiently and securely.
+
 **Response:**
 ```json
 {
   "text": "Extracted text content..."
 }
 
-
-This project is proudly created and maintained by Vivek Rawat, a passionate full-stack developer dedicated to building practical and impactful AI-powered web applications. SummarizeX.AI represents my commitment to combining cutting-edge technology with user-friendly design to solve real-world problems efficiently and securely.
