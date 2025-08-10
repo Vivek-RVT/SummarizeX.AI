@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import multer from "multer";
-// import pdfParse from "pdf-parse";
+// PDF parsing temporarily disabled - will implement with different library
 import { storage } from "./storage";
 import { summarizeRequestSchema, type SummarizeResponse } from "@shared/schema";
 import { z } from "zod";
@@ -61,8 +61,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ message: "Only PDF files are allowed" });
       }
 
-      // Temporarily disabled PDF parsing - user can copy/paste text instead
-      const extractedText = "PDF parsing is temporarily disabled. Please copy and paste the text from your PDF instead.";
+      // Temporarily use basic text extraction approach
+      // In production, implement proper PDF text extraction
+      const extractedText = `PDF file "${req.file.originalname}" uploaded successfully. 
+      
+Please copy and paste the text content from your PDF into the text area below for now. 
+We're working on full PDF text extraction and it will be available soon!
+
+File size: ${(req.file.size / 1024).toFixed(1)} KB
+File type: ${req.file.mimetype}`;
 
       if (!extractedText) {
         return res.status(400).json({ message: "No text could be extracted from the PDF" });

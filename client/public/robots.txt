@@ -1,0 +1,59 @@
+# Robots.txt for SummarizeX.AI - World's Best AI Text Summarizer 2025
+# https://summarizex.ai/robots.txt
+
+User-agent: *
+Allow: /
+
+# Main pages
+Allow: /
+Allow: /about.html
+Allow: /privacy.html
+Allow: /terms.html
+Allow: /contact.html
+
+# Static assets
+Allow: /assets/
+Allow: /favicon.ico
+Allow: /manifest.json
+Allow: /*.css
+Allow: /*.js
+Allow: /*.svg
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.webp
+
+# Disallow admin/internal paths
+Disallow: /api/
+Disallow: /.well-known/
+Disallow: /src/
+Disallow: /node_modules/
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://summarizex.ai/sitemap.xml
+
+# Additional directives for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+# Social media crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
