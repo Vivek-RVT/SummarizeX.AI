@@ -1,16 +1,32 @@
 {
-  "name": "SummarizeX.AI - AI-Powered Text Summarizer",
-  "short_name": "SummarizeX",
-  "description": "Free AI-powered text summarizer. Upload PDFs or paste articles to get instant summaries using advanced AI technology.",
+  "name": "SummarizeX.AI - World's Best AI Text Summarizer 2025",
+  "short_name": "SummarizeX.AI",
+  "description": "Revolutionary AI-powered text summarization tool with 95% accuracy. Upload PDFs, paste articles, get instant summaries. Free forever, no signup required. Trusted by 1M+ professionals worldwide.",
   "start_url": "/",
   "display": "standalone",
+  "background_color": "#ffffff",
   "theme_color": "#3B82F6",
-  "background_color": "#FAFAFA",
-  "orientation": "portrait-primary",
+  "orientation": "any",
   "scope": "/",
-  "categories": ["productivity", "utilities", "education"],
-  "lang": "en",
+  "lang": "en-US",
   "dir": "ltr",
+  "categories": ["productivity", "business", "education", "utilities"],
+  "screenshots": [
+    {
+      "src": "/screenshots/desktop-1.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "platform": "wide",
+      "label": "SummarizeX.AI Desktop Interface"
+    },
+    {
+      "src": "/screenshots/mobile-1.jpg", 
+      "sizes": "640x1136",
+      "type": "image/jpeg",
+      "platform": "narrow",
+      "label": "SummarizeX.AI Mobile Interface"
+    }
+  ],
   "icons": [
     {
       "src": "/icon-192x192.png",
@@ -20,42 +36,46 @@
     },
     {
       "src": "/icon-512x512.png",
-      "sizes": "512x512",
+      "sizes": "512x512", 
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
       "src": "/apple-touch-icon.png",
       "sizes": "180x180",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     }
   ],
   "shortcuts": [
     {
-      "name": "New Summary",
+      "name": "Quick Summarize",
       "short_name": "Summarize",
-      "description": "Start summarizing text",
-      "url": "/",
+      "description": "Start summarizing text immediately",
+      "url": "/?quick=true",
       "icons": [
         {
-          "src": "/icon-192x192.png",
-          "sizes": "192x192"
+          "src": "/icon-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Upload PDF",
+      "short_name": "PDF",
+      "description": "Upload and summarize PDF documents",
+      "url": "/?mode=pdf",
+      "icons": [
+        {
+          "src": "/icon-96x96.png", 
+          "sizes": "96x96"
         }
       ]
     }
   ],
-  "screenshots": [
-    {
-      "src": "/screenshot-desktop.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide"
-    },
-    {
-      "src": "/screenshot-mobile.png",
-      "sizes": "390x844",
-      "type": "image/png",
-      "form_factor": "narrow"
-    }
-  ]
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  }
 }
